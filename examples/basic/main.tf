@@ -12,7 +12,8 @@ terraform {
 data "azurerm_client_config" "current" {}
 
 module "key_vault" {
-  source = "github.com/schubergphilis/terraform-azure-mcaf-key-vault?ref=v0.2.2"
+  source  = "schubergphilis-ep/mcaf-key-vault/azure"
+  version = "0.2.2"
 
   key_vault = {
     name                = "example"
