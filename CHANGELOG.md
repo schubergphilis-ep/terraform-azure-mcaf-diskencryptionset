@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.1](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/compare/v0.4.0...v0.4.1) (2026-07-09)
+
+
+### 🐛 Fixes
+
+* migrate MCAF module sources ([#2](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/issues/2)) ([57263ba](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/commit/57263ba5b08f80badb86a6174e10359b08737f58))
+
 ## [0.4.0](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/compare/v0.3.1...v0.4.0) (2026-05-12)
 
 
@@ -46,4 +53,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🚀 Features
 
 * first version ([#1](https://github.com/schubergphilis/terraform-azure-mcaf-diskencryptionset/pull/1)) ([f4d1429](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/commit/f4d14291289a1ec5e9f8ed1f6f429257b427424b))
-
