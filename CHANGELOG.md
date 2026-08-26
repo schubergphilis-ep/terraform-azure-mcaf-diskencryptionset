@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/compare/v0.4.1...v1.0.0) (2026-08-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove rsg creation & v5 ready ([#4](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/issues/4))
+
+### 🚀 Features
+
+* remove rsg creation & v5 ready ([#4](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/issues/4)) ([2d5721d](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/commit/2d5721dcd8d17107064fa64a44cd8657f6827346))
+
 ## [0.4.1](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/compare/v0.4.0...v0.4.1) (2026-07-09)
 
 
