@@ -14,12 +14,12 @@ data "azurerm_client_config" "current" {}
 module "key_vault" {
   source  = "schubergphilis-ep/mcaf-key-vault/azure"
   version = "1.1.1"
-  
-  name                = "example"
-  resource_group_name = "keyvault-rg"
-  location            = "westeurope"
-  tenant_id           = data.azurerm_client_config.current.tenant_id
-  cmk_keys_create     = true
+
+  name                 = "example"
+  resource_group_name  = "keyvault-rg"
+  location             = "westeurope"
+  tenant_id            = data.azurerm_client_config.current.tenant_id
+  customer_managed_key = {}
 
   tags = {
     environment = "dev"
