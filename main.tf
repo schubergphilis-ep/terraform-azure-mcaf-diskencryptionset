@@ -1,26 +1,11 @@
-resource "azurerm_resource_group" "this" {
-  count = var.create_new_resource_group ? 1 : 0
-
-  name     = var.resource_group_name
-  location = var.location
-}
-
-data "azurerm_resource_group" "this" {
-  count = !var.create_new_resource_group ? 1 : 0
-
-  name = var.resource_group_name
-}
-
-
 resource "azurerm_disk_encryption_set" "this" {
   name                      = var.name
   location                  = var.location
-  resource_group_name       = var.create_new_resource_group ? azurerm_resource_group.this[0].name : data.azurerm_resource_group.this[0].name
+  resource_group_name       = var.resource_group_name
   auto_key_rotation_enabled = var.auto_key_rotation_enabled
   encryption_type           = var.encryption_type
   federated_client_id       = var.federated_client_id
   key_vault_key_id          = var.key_vault_key_id
-  managed_hsm_key_id        = var.managed_hsm_key_id
 
   dynamic "identity" {
     for_each = local.identity
@@ -31,12 +16,12 @@ resource "azurerm_disk_encryption_set" "this" {
     }
   }
 
-  tags = merge(var.tags, { "Resource Type" = "Disk Encryption Set" })
+  tags = var.tags
 }
 
 resource "azurerm_role_assignment" "this" {
   count                = local.create_role_assignment ? 1 : 0
   principal_id         = azurerm_disk_encryption_set.this.identity[0].principal_id
-  scope                = var.key_vault_resource_id
+  scope                = var.key_vault_key_versionless_resource_id
   role_definition_name = "Key Vault Crypto Service Encryption User"
 }

@@ -1,18 +1,3 @@
-variable "key_vault_key_id" {
-  type        = string
-  description = "The Key Vault Key ID used for encryption."
-}
-
-variable "key_vault_resource_id" {
-  type        = string
-  description = "The resource ID of the Key Vault to associate with the disk encryption set."
-}
-
-variable "location" {
-  type        = string
-  description = "Azure region where the resource should be deployed."
-  nullable    = false
-}
 
 variable "name" {
   type        = string
@@ -24,10 +9,19 @@ variable "resource_group_name" {
   description = "The name of the resource group in which to create the disk encryption set."
 }
 
-variable "create_new_resource_group" {
-  type        = bool
-  default     = false
-  description = "If true, a new resource group will be created."
+variable "location" {
+  type        = string
+  description = "Azure region where the resource should be deployed."
+}
+
+variable "key_vault_key_id" {
+  type        = string
+  description = "The Key Vault Key ID used for encryption."
+}
+
+variable "key_vault_key_versionless_resource_id" {
+  type        = string
+  description = "The versionless resource ID of the Key Vault key to associate with the disk encryption set."
 }
 
 variable "auto_key_rotation_enabled" {
@@ -46,12 +40,6 @@ variable "federated_client_id" {
   type        = string
   default     = null
   description = " Multi-tenant application client id to access key vault in a different tenant."
-}
-
-variable "managed_hsm_key_id" {
-  type        = string
-  default     = null
-  description = "The Managed HSM Key ID used for encryption."
 }
 
 variable "system_assigned_identity_enabled" {

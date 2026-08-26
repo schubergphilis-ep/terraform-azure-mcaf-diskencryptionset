@@ -13,15 +13,13 @@ data "azurerm_client_config" "current" {}
 
 module "key_vault" {
   source  = "schubergphilis-ep/mcaf-key-vault/azure"
-  version = "0.2.2"
+  version = "1.1.1"
 
-  key_vault = {
-    name                = "example"
-    resource_group_name = "keyvault-rg"
-    location            = "westeurope"
-    tenant_id           = data.azurerm_client_config.current.tenant_id
-    cmk_keys_create     = true
-  }
+  name                 = "example"
+  resource_group_name  = "keyvault-rg"
+  location             = "westeurope"
+  tenant_id            = data.azurerm_client_config.current.tenant_id
+  customer_managed_key = {}
 
   tags = {
     environment = "dev"
@@ -29,13 +27,11 @@ module "key_vault" {
 }
 
 module "des" {
-  source                           = "../../"
-  name                             = "example"
-  resource_group_name              = "des-rg"
-  location                         = "westeurope"
-  key_vault_key_id                 = module.key_vault.cmkrsa_resource_versionless_id
-  key_vault_resource_id            = module.key_vault.key_vault_id
-  auto_key_rotation_enabled        = true
-  user_assigned_identities         = []
-  system_assigned_identity_enabled = false
+  source                                = "../../"
+  name                                  = "example"
+  resource_group_name                   = "des-rg"
+  location                              = "westeurope"
+  key_vault_key_id                      = module.key_vault.cmkrsa_versionless_id
+  key_vault_key_versionless_resource_id = module.key_vault.cmkrsa_resource_versionless_id
+  auto_key_rotation_enabled             = true
 }
