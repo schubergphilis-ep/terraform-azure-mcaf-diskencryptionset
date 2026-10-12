@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.0.0](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/compare/v1.0.0...v2.0.0) (2026-10-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* the module no longer supports the azurerm 4.x provider. Consumers must upgrade to azurerm >= 5.0. See UPGRADING.md.
+
+### 🧼 Refactoring
+
+* require azurerm provider 5.x ([#6](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/issues/6)) ([c8c57da](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/commit/c8c57dab98da7d4dacd2380704c0b4ace07dff9e))
+
 ## [1.0.0](https://github.com/schubergphilis-ep/terraform-azure-mcaf-diskencryptionset/compare/v0.4.1...v1.0.0) (2026-08-26)
 
 
